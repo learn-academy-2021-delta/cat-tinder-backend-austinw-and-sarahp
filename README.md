@@ -10,10 +10,16 @@ $ git checkout -b main
 $ git add .
 $ git commit -m "your message here"
 $ git push origin main
+```
+## Swap to a new branch and start working
 
+```
 $ rails generate resource Cat name:string age:integer enjoys:text
 $ rails db:migrate
+$ rails rspec spec
+
 ```
+<!-- just to make sure things didn't break -->
 
 ```ruby
 cats = [
@@ -52,6 +58,9 @@ CORS
  ```ruby
  skip_before_action :verify_authenticity_token
 ```
+  
+In the Gemfile
+
 ```ruby
  gem 'rack-cors', :require => 'rack/cors'
 ```
