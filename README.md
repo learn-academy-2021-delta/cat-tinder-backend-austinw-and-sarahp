@@ -1,5 +1,7 @@
+Rails Intro, Seeds, and Cors
+
 ```
-$ rails new cat_tinder_backend_instructors -d postgresql -T 
+$ rails new cat_tinder_backend -d postgresql -T 
 $ cd cat_tinder_backend
 $ rails db:create
 $ bundle add rspec-rails
@@ -11,6 +13,7 @@ $ git add .
 $ git commit -m "your message here"
 $ git push origin main
 ```
+
 ## Swap to a new branch and start working
 
 ```
@@ -20,7 +23,8 @@ $ rails rspec spec
 
 ```
 <!-- just to make sure things didn't break -->
-
+  
+In db/seeds.rb 
 ```ruby
 cats = [
     {
@@ -65,7 +69,7 @@ In the Gemfile
  gem 'rack-cors', :require => 'rack/cors'
 ```
 
-config/initilaizers add file name "cors.rb"
+In config/initilaizers add file name "cors.rb"
 
 add this code to the file 
 ```ruby
