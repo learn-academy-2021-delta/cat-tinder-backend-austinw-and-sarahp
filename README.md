@@ -1,24 +1,16 @@
-# README
+```
+$ rails new cat_tinder_backend_instructors -d postgresql -T 
+$ cd cat_tinder_backend
+$ rails db:create
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+$ git remote add origin https://github.com/...
+$ git checkout -b main
+$ git add .
+$ git commit -m "your message here"
+$ git push origin main
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ bundle add rspec-rails
+$ rails g rspec:install
+$ rails generate resource Cat name:string age:integer enjoys:text
+$ rails db:migrate
+```
