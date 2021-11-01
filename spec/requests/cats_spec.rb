@@ -26,7 +26,6 @@ RSpec.describe "Cats", type: :request do
       expect(response).to have_http_status(200)
 
       cat = Cat.first
-      p cat.id
       expect(cat.name).to eq 'Giraffe'
       expect(cat.age).to eq 5
       expect(cat.enjoys).to eq 'showing up in odd places randomly'
@@ -44,7 +43,7 @@ RSpec.describe "Cats", type: :request do
       }
       post '/cats', params: cat_params
       cat = Cat.first
-      
+
       updated_cat_params = {
         cat: {
           name: "Tunces",
@@ -58,10 +57,9 @@ RSpec.describe "Cats", type: :request do
       expect(cat.age).to eq 10
     end
   end
-  
+
   describe "DELETE /destroy" do
     it 'deletes a cat' do
-      # create the cat
       cat_params = {
         cat: {
           name: 'Pooky',
@@ -77,4 +75,20 @@ RSpec.describe "Cats", type: :request do
       expect(cats).to be_empty
     end
   end
+
+  describe 'cat validation error codes' do
+    it 'does not create a cat with a name' do
+      cat_params = {
+        cat: {
+          age: 2,
+          enjoys: 'Eats garden veggies'
+        }
+      }
+      post '/cats', params: cat_params
+      expect(response.status).to eq 422
+      cat = JSON.parse(response.body)
+      expect(cat['name']).to include "can't be blank"
+    end
+  end
+
 end
