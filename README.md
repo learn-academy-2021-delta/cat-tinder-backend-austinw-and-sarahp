@@ -89,6 +89,15 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 end
 ```
 
-## Endpoints
 Useful commands 
 $ rails routes
+
+stub: A method stub in software development is a piece of code used to stand in for some other programming functionality.
+
+Endpoints: 
+    GET "/index" =>  cat#index
+    POST "/create" => cat#create
+    PATCH "/update" => cat#update
+    DELETE "/destroy" => cat#destroy
+
+    
